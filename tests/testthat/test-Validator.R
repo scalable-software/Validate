@@ -878,7 +878,7 @@ describe("When input |> validate[['is.UUID']]()",{
     input <- identifier 
     
     # Then
-    input |> validate[['is.UUID']]() |> expect.error(expected.error)
+    input |> validate[['is.UUID']]('identifier') |> expect.error(expected.error)
   })
   it("then input is returned if input is UUID",{
     # Given
