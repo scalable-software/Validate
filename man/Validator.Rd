@@ -25,7 +25,7 @@ a list value:
 \item \code{input |> validate[['has.one.row']]()}
 \item \code{input |> validate[['has.length']](length)}
 \item \code{input |> validate[['has.name']](name)}
-\item \code{input |> validate[['is.UUID']]()}
+\item \code{input |> validate[['is.UUID']](name)}
 \item \code{input |> validate[['is.email']]()}
 \item \code{input |> validate[['is.greater.than']](value)}
 \item \code{input |> validate[['is.less.than']](value)}
