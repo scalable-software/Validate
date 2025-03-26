@@ -24,7 +24,7 @@
 #' * `input |> validate[['has.one.row']]()`
 #' * `input |> validate[['has.length']](length)`
 #' * `input |> validate[['has.name']](name)`
-#' * `input |> validate[['is.UUID']]()`
+#' * `input |> validate[['is.UUID']](name)`
 #' * `input |> validate[['is.email']]()`
 #' * `input |> validate[['is.greater.than']](value)`
 #' * `input |> validate[['is.less.than']](value)`
@@ -116,9 +116,9 @@ Validator <- \() {
     actual.names |> (\(x) x == name)() |> any() |> isFALSE() |> exception[['name.invalid']](name)
     return(input)
   }
-  validators[['is.UUID']]         <- \(input) {
+  validators[['is.UUID']]         <- \(input, name) {
     pattern <- "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
-    pattern |> grepl(input) |> isFALSE() |> exception[['identifier.invalid']](input)
+    pattern |> grepl(input) |> isFALSE() |> exception[['identifier.invalid']](name)
     return(input)
   }
   validators[['is.email']]        <- \(input) {
